@@ -3,7 +3,7 @@ import { useFrame } from "@react-three/fiber";
 import { useEffect, useRef, useState } from "react";
 
 export default function CurvedPlane() {
-  const sphereRef = useRef(null);
+  const sphereRef = useRef<THREE.Mesh>(null);
   const [windowWidth, setWindowWidth] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
 
@@ -45,10 +45,12 @@ export default function CurvedPlane() {
     const targetXInvert = mouseX * 0.00025;
     const targetY = mouseY * 0.00025;
 
-    sphereMesh.rotation.y +=
-      0.04 * (targetXInvert - sphereMesh.rotation.y * smooth * 0.6);
-    sphereMesh.rotation.x +=
-      0.04 * (targetY - sphereMesh.rotation.x * smooth * 0.6);
+    if (sphereMesh) {
+      sphereMesh.rotation.y +=
+        0.04 * (targetXInvert - sphereMesh.rotation.y * smooth * 0.6);
+      sphereMesh.rotation.x +=
+        0.04 * (targetY - sphereMesh.rotation.x * smooth * 0.6);
+    }
   });
 
   return (
