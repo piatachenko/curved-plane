@@ -35,7 +35,7 @@ export default function CurvedPlane() {
     return () => {
       document.removeEventListener("mousemove", onMouseMove);
     };
-  }, []);
+  }, [windowWidth, windowHeight]);
 
   useFrame(() => {
     const sphereMesh = sphereRef.current;
