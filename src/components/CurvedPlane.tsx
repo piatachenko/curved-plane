@@ -42,7 +42,7 @@ export default function CurvedPlane() {
 
     const smooth = 2.5;
     const targetX = mouseX * -0.00025;
-    const targetXInvert = mouseX * 0.00025;
+    const targetXInvert = -targetX;
     const targetY = mouseY * 0.00025;
 
     if (sphereMesh) {
@@ -56,7 +56,7 @@ export default function CurvedPlane() {
   return (
     <>
       <Sphere args={[35, 100, 100]} ref={sphereRef}>
-        <meshBasicMaterial attach="material" wireframe />
+        <meshBasicMaterial opacity={0.05} transparent attach="material" wireframe />
       </Sphere>
     </>
   );
