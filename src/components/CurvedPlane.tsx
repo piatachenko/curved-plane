@@ -1,6 +1,7 @@
 import { Sphere } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useEffect, useRef, useState } from "react";
+import CylinderWork from "./CylinderWork";
 
 export default function CurvedPlane() {
   const sphereRef = useRef<THREE.Mesh>(null);
@@ -57,6 +58,7 @@ export default function CurvedPlane() {
     <>
       <Sphere args={[35, 100, 100]} ref={sphereRef}>
         <meshBasicMaterial opacity={0.05} transparent attach="material" wireframe />
+        <CylinderWork />
       </Sphere>
     </>
   );
