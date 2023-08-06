@@ -2,6 +2,7 @@ import ReactFullpage from "@fullpage/react-fullpage";
 import { Canvas } from "@react-three/fiber";
 import CurvedPlane from "~/components/CurvedPlane";
 
+
 function Home() {
   return (
     <>
@@ -13,9 +14,10 @@ function Home() {
         <CurvedPlane />
       </Canvas>
 
-      <div className="text-center text-white text-8xl">
-        <ReactFullpage render={() => {
-          return(
+      <div className="text-center text-8xl text-white">
+        <ReactFullpage
+        credits={{ enabled: true, label: "" }}
+          render={() => (
             <ReactFullpage.Wrapper>
               <div className="section">sketch</div>
               <div className="section">instrument</div>
@@ -24,8 +26,8 @@ function Home() {
               <div className="section">backstage talks</div>
               <div className="section">ableton</div>
             </ReactFullpage.Wrapper>
-          )
-        }} />
+          )}
+        />
       </div>
     </>
   );
