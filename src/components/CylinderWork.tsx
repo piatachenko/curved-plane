@@ -32,9 +32,9 @@ export default function CylinderWork() {
     function updateWindow() {
       setWindowWidth(window.innerWidth);
       setWindowHeight(window.innerHeight);
-
       uniforms.u_mousePos.value.x = window.innerWidth;
       uniforms.u_mousePos.value.y = window.innerHeight;
+      setKey(`${uniforms.u_mousePos.value.x}${uniforms.u_mousePos.value.y}`);
     }
 
     updateWindow();
@@ -46,8 +46,6 @@ export default function CylinderWork() {
 
   useEffect(() => {
     function handlePointerMove(e: MouseEvent) {
-      setKey(`${uniforms.u_mousePos.value.x}${uniforms.u_mousePos.value.y}`);
-
       const x = ((e.clientX - windowWidth / 2) / windowWidth) * 2;
       const y = -((e.clientY - windowHeight / 2) / windowHeight) * 2;
 
