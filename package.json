@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@fullpage/react-fullpage": "^0.1.40",
     "@react-three/drei": "^9.78.2",
     "@react-three/fiber": "^8.13.5",
     "@t3-oss/env-nextjs": "^0.3.1",

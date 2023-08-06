@@ -8,6 +8,7 @@ import cylinderVertexShader from "~/shaders/cylinderVertexShader";
 
 export default function CylinderWork() {
   const cylinderRef = useRef(null);
+  const shaderRef = useRef(null);
   const [windowWidth, setWindowWidth] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
   const [key, setKey] = useState("");
@@ -58,8 +59,8 @@ export default function CylinderWork() {
     }
 
     window.addEventListener("mousemove", handlePointerMove);
-    return () => window.addEventListener("mousemove", handlePointerMove);
-  }, [cylinderRef, windowWidth, key]);
+    return () => window.removeEventListener("mousemove", handlePointerMove);
+  }, [cylinderRef, windowWidth, shaderRef, key]);
 
   return (
     <Cylinder
@@ -69,6 +70,7 @@ export default function CylinderWork() {
     >
       <shaderMaterial
         key={key}
+        ref={shaderRef}
         vertexShader={cylinderVertexShader}
         fragmentShader={cylinderFragmentShader}
         side={THREE.BackSide}
