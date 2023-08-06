@@ -5,3 +5,7 @@
 body {
   @apply bg-[#070707];
 }
+
+.fp-watermark {
+  @apply hidden;
+}
